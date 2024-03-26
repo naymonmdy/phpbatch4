@@ -102,25 +102,107 @@ echo trim($subtitle,"try");//Welcome to my coun
 
 
 
+// ltrim ()  function left trim
+// ltrim (string,character)
+
+$sayhi="/Mingalarpar/";
+echo ltrim($sayhi,"/");//   Mingalarpar/
 
 
 
+// rtrim ()  function right trim
+// rtrim (string,character)
+
+$sayhello="/Mingalarpar/";
+echo rtrim($sayhello,"/"); // /Mingalarpar
+
+
+//str_repeat() Function
+//str_repeat(string,count) Function
+
+$love ="A Kyal Gyi";
+echo str_repeat($love,3);
+
+//strcmp(string1,string2) Function (case-sensitive)
+//0 = if the two strings are equal
+//<0 = if  strings1 is less than string2
+//>0 = if  strings1 is greater than string2
+
+
+echo strcmp("I love my job","I love my job");//0
+echo strcmp("I love","I love my job");//-7
+echo strcmp("I love my job","I love");//+7
+
+
+//explode(seperator,string,limit index) funtion return array =>not echo 
+$words ="welcome to my country";
+echo"<pre>".print_r(explode(" ",$words),true)."</pre>";//Array([0] => welcome[1] => to[2] => my[3] => country
+echo"<pre>".print_r(explode(" ",$words,0),true)."</pre>";//Array([0] => welcome[1]
+echo"<pre>".print_r(explode(" ",$words,1),true)."</pre>";//Array([1] => welcome[1] => to my country[2]
+echo"<pre>".print_r(explode(" ",$words,2),true)."</pre>";//Array([2] => welcome[1] => to[2]=> my country[3]
+
+
+//implode(seperator,array)  array to string
+$words = ["Welcome","to","my","country"];
+echo implode(" ",$words);// Welcome to my country
+echo implode("-",$words);// Welcome-to-my-country
+
+
+//join(seperator,array)  array to string
+$words = ["Welcome","to","my","village"];
+echo join(" ",$words);// Welcome to my village
+echo join("-",$words);// Welcome-to-my-village
+
+
+//number_format(number) function 
+//number_format(number,decimal) function 
+
+echo number_format("100000");//1,000,000
+echo number_format("100000",2);//1,000,000.00
 
 
 
+// stripslashes(string) Function clear slashes in double code and sigle code
+$str='he\'s my mother';
+echo $str;//he's my mother
+
+$str="he\'s my father";
+echo $str;//he\'s my father;
+echo stripslashes($str);//he's my father;
 
 
+//basename(path) Function file uploading process
+//basename(path,suffix) 
+
+$path="./assets/img/cover.jpg";
+echo($path);//./assets/img/cover.jpg
+echo basename($path);//cover.jpg
+echo basename($path,".jpg");//cover
 
 
+//pathinfo(path) Function file path detail info into array
 
+//pathinfo(path,flags)
+// PATHINFO_DIRNAME
+// PATHINFO_BASENAME 
+// PATHINFO_EXTENSION
+// PATHINFO_FILNAME 
 
+$filepath="./assets/img/cover.jpg";
+echo"<pre>".print_r(explode(" ",$filepath),true)."</pre>";
+// Array
+// (
+//     [0] => ./assets/img/cover.jpg
+// )
 
+echo pathinfo($filepath["dirname"]);//./assets/img/cover.jpg
+echo pathinfo($filepath["basename"]);//cover.jpg
+echo pathinfo($filepath["filename"]);//cover
 
-
-
-
-
-
+echo pathinfo($filepath,PATHINFO_DIRNAME);//./assets/img/cover.jpg
+echo pathinfo($filepath,PATHINFO_BASENAME);// cover.jpg
+echo pathinfo($filepath,PATHINFO_EXTENSION);//jpg
+echo pathinfo($filepath,PATHINFO_FILENAME);//cover
 
 
 ?>
