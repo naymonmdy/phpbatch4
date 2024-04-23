@@ -55,7 +55,7 @@ echo uniqid();//6626863f058a1
 //number_format(number,decimal,decimal-seperator,thounsand-separator) function
 echo number_format(1500,2);//1,500.00
 echo number_format(1250000,2);//1,250,000.00
-echo number_format(1250000,2,"-","/");1/250/000-00
+echo number_format(1250000,2,"-","/");//1/250/000-00
 
 
 ?>
