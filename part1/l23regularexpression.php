@@ -131,6 +131,87 @@ $result=preg_match("/<i>(.*)<\/i>/",$string);//true
 $string ="admin@gmail.com";
 $result=preg_match("/^[A-z,a-z]+@[a-z]+\.\w{3}/",$string);//true this code to be email address or nor
 
+
+
+
+//preg_replace(pattern,replacement,string)
+$string ="I love PHP.";
+preg_replace("/PHP/","Javascript",$string);    //I love Javascript
+preg_replace("/php/i","Javascript",$string);    // i use for not case sensitive
+preg_replace("/\s/","",$string);    // IlovePHP  \s use for space
+
+
+//Bracket Expression
+$string="admin123@gmail. com";
+$result=preg_replace("/[[:space:]]/","",$string); // admin123@gmail.com
+$result=preg_replace("/[[:space:]]/","x",$string); // admin123@gmail.xcom
+$result=preg_replace("/[[:alpha:]]/","x",$string); // xxxxx123xxxxx. xxx
+$result=preg_replace("/[[:digit:]]/","x",$string); // adminxxx@gmail. com
+$result=preg_replace("/[[:alnum:]]/","x",$string); // xxxxxxxx@xxxxx. xxx
+$result=preg_replace("/[[:puncg:]]/","x",$string); // admin123xgmailx com
+
+$string="Admin123@gmail. Com";
+$result=preg_replace("/[[:lower:]]/","x",$string); // Axxxxxxx@xxxxx. Cxx
+$result=preg_replace("/[[:upper:]]/","x",$string); // xdmin123xgmail .xcom
+
+$string ="Are you ready to learn PHP Framework";
+$result =preg_replace(["/PHP/","/framework/"],["Javascript","libraries"],$string);//"Are you ready to learn Javascript Framework"
+$result =preg_replace(["/PHP/","/framework/i"],["Javascript","libraries"],$string);//Are you ready to learn Javascript labraries"
+
+
+$string="My Lucky number is 007 but i got ticket number 5700";
+$result=preg_replace("/[0-9]/","x",$string);// My Lucky number is xxx but i got ticket number xxxx"
+$result=preg_replace("/[0-9]+/","x",$string);// My Lucky number is x but i got ticket number x"
+
+
+$string="My Lucky number is 007";
+$result=preg_split("/\s/",$string);
+// echo error array to conversion
+echo "<pre>".print_r($result,true),"</pre>";
+echo $result[0]; //My
+echo $result[4]; //007
+
+$result=preg_split("/\s/",$string,2);
+
+echo "<pre>".print_r($result,true),"</pre>";
+echo $result[0]; //My
+echo $result[1]; //lucky number is 007
+
+$string="My Lucky number is 007 but i got ticket number 5700";
+
+$result=preg_split("/[\s,]/",$string,NUll,PREG_SPLIT_NO_EMPTY);
+$result=preg_split("/[\s,]/",$string,0,PREG_SPLIT_NO_EMPTY);
+$result=preg_split("/[\s,]/",$string,0,PREG_SPLIT_NO_EMPTY);
+$result=preg_split("//",$string,NULL,PREG_SPLIT_NO_EMPTY);
+$result=preg_split("//",$string);
+
+echo "<pre>".print_r($result,true),"</pre>";
+
+// pre_quote(string,delimeter)
+$string="He\'s my father,do you known him?";
+$result=preg_quote($string);// "He\\'s my father,do you known him \?"
+$result=preg_quote($string,"0");// "He\\'s my father,d\o y\ou kn\own him \?"
+
+
+// pre_match_all(pattern,string,match/return,flags)
+$string="Winning number are 277-000 & 002-77 , but my ticket number are 007-222 $123456 ";
+preg_match_all("/\d+-\d+/",$string,$result,PREG_SET_ORDER);
+preg_match_all("/\d+-\d+/",$string,$result,PREG_PATTERN_ORDER);
+// echo error
+echo "<pre>".print_r($result,true),"</pre>";
+
+
+
+// Lookahead $ Lookbehind
+// (?=) positive Lookahead (or) regex lookahead =right hand side
+// (?<=) positive Lookbehind (or) regex lookbehind =left hand side
+
+// (?!) negative Lookbehind (or) regex lookbehind
+// (?<!) negative Lookbehind (or) regex lookbehind
+
+
+
+
 //  $ must be in end (case sensitive) -->
 // [] range a-z  A-Z 0-9
 // m+ must contain al least one m and more
