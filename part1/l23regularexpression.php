@@ -209,6 +209,13 @@ echo "<pre>".print_r($result,true),"</pre>";
 // (?!) negative Lookbehind (or) regex lookbehind
 // (?<!) negative Lookbehind (or) regex lookbehind
 
+$string ="aungkyaw@ciso.com";
+$result=preg_match('/@(?=ciso)/',$string);//true (positive lookahead,)
+$result=preg_match('/(?<=@)ciso/',$string);//true (positive lookbehind)
+
+$result=preg_match('/@(?!ciso)/',$string);//false (negative lookahead,)
+$result=preg_match('/(?<!@)ciso/',$string);//false (negative lookbehind)
+
 
 
 
