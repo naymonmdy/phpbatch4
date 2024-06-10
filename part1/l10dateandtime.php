@@ -100,4 +100,41 @@ echo "This is format  Y=".$date; //2024
 $date=date('z',$time);
 echo "This is format  z=".$date; //64  days 
 
+
+// Date Create funtion ,date_create(time,optional timezone) with date_format(timestamp,"Y/m/d") with date_diff(new,old)
+    // eg. date_create(timestamp, timezone_one("Asia/Yangon"))
+
+
+    $date1=date_create("10-01-2024");
+    echo date_format($date1,"Y/m/d");
+
+
+    $date2=date_create("15-05-2024");
+    echo date_format($date2,"Y-m-d");
+
+    $datediffone = date_diff($date1,$date2);
+    echo  $datediffone->format("%d days");//5 Days
+    echo  $datediffone->format("%m month");//4 month
+    echo  $datediffone->format("%y year");//0 year
+    echo  $datediffone->format("%Y Year");//00 year
+
+
+    $getdate = getDate();
+    $date3="{$getdate['mday']}-{$getdate['mon']}-{$getdate['year']}";
+    echo $date3;//10/6/2024
+    $date4=date_create($date3);
+    echo date_format($date4,"Y-m-d");
+
+    $datedifftwo=date_diff($date4,$date2);
+    echo  $datedifftwo->format("%d days");//5 Days
+    echo  $datedifftwo->format("%m month");//1 month
+    echo  $datedifftwo->format("%y year");//0 year
+    echo  $datedifftwo->format("%Y Year");//00 year
+
+
+    //R mean plus or minus and a mean all effect in day month year
+    echo $datedifftwo->format("%R%a days"); 
+
+
+
 ?>

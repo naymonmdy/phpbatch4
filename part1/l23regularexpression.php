@@ -216,7 +216,8 @@ $result=preg_match('/(?<=@)ciso/',$string);//true (positive lookbehind)
 $result=preg_match('/@(?!ciso)/',$string);//false (negative lookahead,)
 $result=preg_match('/(?<!@)ciso/',$string);//false (negative lookbehind)
 
-
+$result=preg_match('/#(?!ciso)/',$string);//true (negative lookahead,)
+$result=preg_match('/(?<!#)ciso/',$string);//true (negative lookbehind)
 
 
 //  $ must be in end (case sensitive) -->
