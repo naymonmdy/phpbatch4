@@ -33,19 +33,19 @@ echo $GLOBALS['total'];//300
 
 
 // 2. &_SERVER
-echo $_SERVER["PHP_SELF"];// to get file path 
-echo $_SERVER["HTTP_USER_AGENT"];// get browser information
-echo $_SERVER["HTTP_HOST"];
-echo $_SERVER["SERVER_NAME"];
-echo $_SERVER["SERVER_SOFTWARE"];
-echo $_SERVER["SERVER_PORT"];
-echo $_SERVER["SERVER_PROTOCOL"];
-echo $_SERVER["SERVER_SIGNATURE"];
-echo $_SERVER["REQUEST_METHOD"];
-echo $_SERVER["REMODE_ADDR"];
-echo $_SERVER["SCRIPT_NAME"];
-echo $_SERVER["SCRIPT_FILENAME"];
-echo $_SERVER["QUERY_STRING"];
+                        echo $_SERVER["PHP_SELF"];// to get file path 
+                        echo $_SERVER["HTTP_USER_AGENT"];// get browser information
+                        echo $_SERVER["HTTP_HOST"];//get ip address name 
+                        echo $_SERVER["SERVER_NAME"];//get domain name
+                        echo $_SERVER["SERVER_SOFTWARE"];//Apache for webserver
+                        echo $_SERVER["SERVER_PORT"];// to get port number eg.80
+echo $_SERVER["SERVER_PROTOCOL"];//http1.1 version
+echo $_SERVER["SERVER_SIGNATURE"];//Aparch  server information
+                        echo $_SERVER["REQUEST_METHOD"];//GET method or push /post/delete
+echo $_SERVER["REMODE_ADDR"];//::1
+                        echo $_SERVER["SCRIPT_NAME"];// to get absolute name file path
+                        echo $_SERVER["SCRIPT_FILENAME"];//to get absolute name file path
+                        echo $_SERVER["QUERY_STRING"];//to serch all data with ?
 
 
 
